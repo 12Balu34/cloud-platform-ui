@@ -3,22 +3,29 @@ import { NbMenuModule } from '@nebular/theme';
 
 import { ThemeModule } from '../@theme/theme.module';
 import { PagesComponent } from './pages.component';
-import { DashboardModule } from './dashboard/dashboard.module';
-import { ECommerceModule } from './e-commerce/e-commerce.module';
+
+import { AccountModule } from './account/account.module';
+import { MarketplaceModule } from './marketplace/marketplace.module';
+import { PlatformServicesModule } from './platform-services/platform-services.module';
+import { ProjectsModule } from './projects/projects.module';
+
+
+
+
 import { PagesRoutingModule } from './pages-routing.module';
-import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 
 @NgModule({
   imports: [
     PagesRoutingModule,
     ThemeModule,
     NbMenuModule,
-    DashboardModule,
-    ECommerceModule,
-    MiscellaneousModule,
+    AccountModule,
+    MarketplaceModule,
+    PlatformServicesModule,
+    ProjectsModule
   ],
   declarations: [
-    PagesComponent,
+    PagesComponent
   ],
 })
 export class PagesModule {

@@ -2,81 +2,72 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ECommerceComponent } from './e-commerce/e-commerce.component';
-import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
+import { NewProjectComponent } from './projects/new-project/new-project.component';
+import { AppRuntimeComponent } from './platform-services/app-runtime/app-runtime.component';
+import { KubernetesComponent } from './platform-services/kubernetes/kubernetes.component';
+import { ObjectStorageComponent } from './platform-services/object-storage/object-storage.component';
+import { VirtualMachinesComponent } from './platform-services/virtual-machines/virtual-machines.component';
+import { DatabasesComponent } from './marketplace/databases/databases.component';
+import { MessagingComponent } from './marketplace/messaging/messaging.component';
+import { MonitoringComponent } from './marketplace/monitoring/monitoring.component';
+import { InsightsComponent } from './marketplace/insights/insights.component';
+import { SettingsComponent } from './account/settings/settings.component';
+import { BillingComponent } from './account/billing/billing.component';
+import { ApiComponent } from './account/api/api.component';
+
 
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
   children: [
     {
-      path: 'dashboard',
-      component: ECommerceComponent,
+      path: 'projects',
+      component: NewProjectComponent,
     },
     {
-      path: 'iot-dashboard',
-      component: DashboardComponent,
+      path: 'platform-services/app-runtime',
+      component: AppRuntimeComponent,
     },
     {
-      path: 'layout',
-      loadChildren: () => import('./layout/layout.module')
-        .then(m => m.LayoutModule),
+      path: 'platform-services/kubernetes',
+      component: KubernetesComponent,
     },
     {
-      path: 'forms',
-      loadChildren: () => import('./forms/forms.module')
-        .then(m => m.FormsModule),
+      path: 'platform-services/object-storage',
+      component: ObjectStorageComponent,
     },
     {
-      path: 'ui-features',
-      loadChildren: () => import('./ui-features/ui-features.module')
-        .then(m => m.UiFeaturesModule),
+      path: 'platform-services/virtual-machines',
+      component: VirtualMachinesComponent,
     },
     {
-      path: 'modal-overlays',
-      loadChildren: () => import('./modal-overlays/modal-overlays.module')
-        .then(m => m.ModalOverlaysModule),
+      path: 'marketplace/databases',
+      component: DatabasesComponent,
     },
     {
-      path: 'extra-components',
-      loadChildren: () => import('./extra-components/extra-components.module')
-        .then(m => m.ExtraComponentsModule),
+      path: 'marketplace/messaging',
+      component: MessagingComponent,
     },
     {
-      path: 'maps',
-      loadChildren: () => import('./maps/maps.module')
-        .then(m => m.MapsModule),
+      path: 'marketplace/monitoring',
+      component: MonitoringComponent,
     },
     {
-      path: 'charts',
-      loadChildren: () => import('./charts/charts.module')
-        .then(m => m.ChartsModule),
+      path: 'marketplace/insights',
+      component: InsightsComponent,
     },
     {
-      path: 'editors',
-      loadChildren: () => import('./editors/editors.module')
-        .then(m => m.EditorsModule),
+      path: 'account/settings',
+      component: SettingsComponent,
     },
     {
-      path: 'tables',
-      loadChildren: () => import('./tables/tables.module')
-        .then(m => m.TablesModule),
+      path: 'account/billing',
+      component: BillingComponent,
     },
     {
-      path: 'miscellaneous',
-      loadChildren: () => import('./miscellaneous/miscellaneous.module')
-        .then(m => m.MiscellaneousModule),
-    },
-    {
-      path: '',
-      redirectTo: 'dashboard',
-      pathMatch: 'full',
-    },
-    {
-      path: '**',
-      component: NotFoundComponent,
-    },
+      path: 'account/api',
+      component: ApiComponent,
+    }
   ],
 }];
 
