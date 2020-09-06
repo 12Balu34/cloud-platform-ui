@@ -13,3 +13,13 @@ Website based on ngx-admin, inspired by [DigitalOcean's Platform](https://digita
 npm install
 npm run start
 ```
+
+## Keycloak Mail Config
+* get name of mailhog container
+```sh
+docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                              NAMES
+60a4f04da5c6        jboss/keycloak      "/opt/jboss/tools/do…"   8 minutes ago       Up 8 minutes        0.0.0.0:8080->8080/tcp, 8443/tcp   ngx-admin_keycloak_1
+d9e23577d44c        mailhog/mailhog     "MailHog"                8 minutes ago       Up 8 minutes        1025/tcp, 0.0.0.0:8025->8025/tcp   ngx-admin_smtp_1
+```
+![Keycloak Mail Setup](./keycloak_mail_setup.PNG)
