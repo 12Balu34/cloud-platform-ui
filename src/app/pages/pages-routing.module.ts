@@ -14,12 +14,17 @@ import { InsightsComponent } from './marketplace/insights/insights.component';
 import { SettingsComponent } from './account/settings/settings.component';
 import { BillingComponent } from './account/billing/billing.component';
 import { ApiComponent } from './account/api/api.component';
+import { OverviewComponent } from './projects/overview/overview.component';
 
 
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
   children: [
+    {
+      path: 'overview',
+      component: OverviewComponent,
+    },
     {
       path: 'projects',
       component: NewProjectComponent,

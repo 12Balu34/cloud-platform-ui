@@ -5,8 +5,13 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Projects',
     home: true,
+    icon: 'home-outline',
     expanded: true,
     children: [
+      {
+        title: 'Overview',
+        link: '/pages/overview',
+      },
       {
         title: 'Create new',
         link: '/pages/projects',
@@ -16,6 +21,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Platform Services',
     expanded: true,
+    icon: 'layers-outline',
     children: [
       {
         title: 'App Runtime',
@@ -38,6 +44,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Marketplace',
     link: '/pages/ui-features',
+    icon: 'cube-outline',
     expanded: true,
     children: [
       {
@@ -61,6 +68,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Account',
     expanded: true,
+    icon: 'settings-2-outline',
     children: [
       {
         title: 'Settings',
