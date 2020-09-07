@@ -9,7 +9,13 @@ import { ObjectStorageComponent } from './object-storage/object-storage.componen
 
 
 @NgModule({
-  declarations: [AppRuntimeComponent, KubernetesComponent, VmComponent, VirtualMachinesComponent, ObjectStorageComponent],
+  declarations: [
+    AppRuntimeComponent, 
+    KubernetesComponent, 
+    VmComponent, 
+    VirtualMachinesComponent, 
+    ObjectStorageComponent
+  ],
   imports: [
     CommonModule
   ]
