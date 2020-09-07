@@ -57,7 +57,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
       {
         title: 'Monitoring',
-        link: '/pages/marketplace/monitoring',  
+        link: '/pages/marketplace/monitoring',
       },
       {
         title: 'Insights',
