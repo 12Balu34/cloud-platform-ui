@@ -48,11 +48,11 @@ import { NbOAuth2CallbackComponent } from './nb-oauth2-callback/nb-oauth2-callba
       strategies: [
         NbOAuth2AuthStrategy.setup({
           name: 'keycloak',
-          clientId: 'ng-portal-app',
+          clientId: 'ngx-admin',
           clientSecret: '',
           authorize: {
-            endpoint: 'http://localhost:8080/auth/realms/ng-portal/protocol/openid-connect/auth',
-            responseType: NbOAuth2ResponseType.TOKEN,
+            endpoint: 'http://passthepopcorn.de/auth/realms/ngx-admin/protocol/openid-connect/auth',
+            responseType: NbOAuth2ResponseType.CODE,
             scope: 'address email',
             // TODO: stimmt wahrscheinlich nicht
             redirectUri: 'http://localhost:4200/callback',
