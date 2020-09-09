@@ -5,7 +5,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'nb-oauth2-callback',
+  selector: 'ngx-nb-oauth2-callback',
   template: `
     <nb-layout>
       <nb-layout-column>Authenticating...</nb-layout-column>
@@ -13,11 +13,11 @@ import { Router } from '@angular/router';
   `,
 })
 export class NbOAuth2CallbackComponent implements OnDestroy, OnInit {
-  
+
   private destroy$ = new Subject<void>();
 
   constructor(private authService: NbAuthService, private router: Router) { }
-  
+
   ngOnInit(): void {
     this.authService.authenticate('keycloak')
       .pipe(takeUntil(this.destroy$))

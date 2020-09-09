@@ -5,10 +5,10 @@ import { NbAuthOAuth2Token, NbAuthService, NbAuthResult } from '@nebular/auth';
 
 @Component({
   // selector: 'ngx-nb-oauth2-login',
-  selector: 'nb-oauth2-login',
+  selector: 'ngx-nb-oauth2-login',
   template: `
     <button class="btn btn-success" *ngIf="!token" (click)="login()">Login with Keycloak</button>
-  `,  
+  `,
 })
 export class NbOAuth2LoginComponent implements OnDestroy {
 
@@ -16,9 +16,6 @@ export class NbOAuth2LoginComponent implements OnDestroy {
   private destroy$ = new Subject<void>();
 
   constructor(private authService: NbAuthService) { }
-
-  ngOnInit(): void {
-  }
 
   login() {
     this.authService.authenticate('keycloak')
