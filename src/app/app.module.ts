@@ -19,10 +19,15 @@ import {
   NbSidebarModule,
   NbToastrModule,
   NbWindowModule,
+  NbCardModule,
+  NbLayoutModule,
 } from '@nebular/theme';
+import { NbAuthModule, NbOAuth2AuthStrategy, NbOAuth2ResponseType } from '@nebular/auth';
+import { NbOAuth2LoginComponent } from './nb-oauth2-login/nb-oauth2-login.component';
+import { NbOAuth2CallbackComponent } from './nb-oauth2-callback/nb-oauth2-callback.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NbOAuth2LoginComponent, NbOAuth2CallbackComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -39,6 +44,24 @@ import {
     }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
+    NbAuthModule.forRoot({
+      strategies: [
+        NbOAuth2AuthStrategy.setup({
+          name: 'keycloak',
+          clientId: 'ng-portal-app',
+          clientSecret: '',
+          authorize: {
+            endpoint: 'http://localhost:8080/auth/realms/ng-portal/protocol/openid-connect/auth',
+            responseType: NbOAuth2ResponseType.TOKEN,
+            scope: 'address email',
+            // TODO: stimmt wahrscheinlich nicht
+            redirectUri: 'http://localhost:4200/callback',
+          },
+        }),
+      ],
+    }),
+    NbCardModule,
+    NbLayoutModule,
   ],
   bootstrap: [AppComponent],
 })

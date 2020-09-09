@@ -8,6 +8,8 @@ import {
   NbRequestPasswordComponent,
   NbResetPasswordComponent,
 } from '@nebular/auth';
+import { NbOAuth2LoginComponent } from './nb-oauth2-login/nb-oauth2-login.component';
+import { NbOAuth2CallbackComponent } from './nb-oauth2-callback/nb-oauth2-callback.component';
 
 export const routes: Routes = [
   {
@@ -45,7 +47,15 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
+  // { path: '', redirectTo: 'pages', pathMatch: 'full' },
+  {
+    path: '',
+    component: NbOAuth2LoginComponent,
+  },
+  {
+    path: 'callback',
+    component: NbOAuth2CallbackComponent,
+  },
   { path: '**', redirectTo: 'pages' },
 ];
 
