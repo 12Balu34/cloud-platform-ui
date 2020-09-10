@@ -20,6 +20,7 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
+import { NbAuthModule, NbOAuth2AuthStrategy, NbOAuth2ResponseType, NbAuthOAuth2Token, NbOAuth2GrantType } from '@nebular/auth';
 
 @NgModule({
   declarations: [AppComponent],
@@ -39,6 +40,33 @@ import {
     }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
+    NbAuthModule.forRoot({
+      strategies: [
+        NbOAuth2AuthStrategy.setup({
+          name: 'keycloak',
+          clientId: 'ngx-admin',
+          authorize: {
+            endpoint: 'https://passthepopcorn.de/auth/realms/ngx-admin/protocol/openid-connect/auth',
+            responseType: NbOAuth2ResponseType.CODE,
+            scope: 'address email',
+            redirectUri: 'http://localhost:4200/auth/callback',
+            requireValidToken: true,
+          },
+          token: {
+            endpoint: 'https://passthepopcorn.de/auth/realms/ngx-admin/protocol/openid-connect/token',
+            class: NbAuthOAuth2Token,
+            grantType:  NbOAuth2GrantType.AUTHORIZATION_CODE,
+            redirectUri: 'http://localhost:4200/auth/callback',
+          },
+          refresh: {
+            endpoint: 'https://passthepopcorn.de/auth/realms/ngx-admin/protocol/openid-connect/token'
+          },
+          redirect: {
+            success: '',
+          },
+        }),
+      ],
+    }),
   ],
   bootstrap: [AppComponent],
 })

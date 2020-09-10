@@ -8,6 +8,8 @@ import {
   NbRequestPasswordComponent,
   NbResetPasswordComponent,
 } from '@nebular/auth';
+import { OAuth2LoginComponent } from './oauth/oauth2-login.component';
+import { OAuth2CallbackComponent } from './oauth/oauth2-callback.component';
 
 export const routes: Routes = [
   {
@@ -25,7 +27,11 @@ export const routes: Routes = [
       },
       {
         path: 'login',
-        component: NbLoginComponent,
+        component: OAuth2LoginComponent,
+      },
+      {
+        path: 'callback',
+        component: OAuth2CallbackComponent,
       },
       {
         path: 'register',
