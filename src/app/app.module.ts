@@ -21,6 +21,7 @@ import {
   NbWindowModule,
 } from '@nebular/theme';
 import {AuthModule} from './auth/auth.module';
+import { OAuthModule } from 'angular-oauth2-oidc';
 
 @NgModule({
   declarations: [AppComponent],
@@ -40,7 +41,13 @@ import {AuthModule} from './auth/auth.module';
     }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
-    AuthModule
+    AuthModule,
+    OAuthModule.forRoot({
+      resourceServer: {
+        sendAccessToken: true,
+        allowedUrls: ['http://www.angular.at/api/']
+      }
+    })
   ],
   bootstrap: [AppComponent],
 })

@@ -4,8 +4,8 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 import { Component, OnInit } from '@angular/core';
-import { AnalyticsService } from './@core/utils/analytics.service';
-import { SeoService } from './@core/utils/seo.service';
+import { OAuthService } from 'angular-oauth2-oidc';
+import { oauthConfig } from './oauth-config';
 
 @Component({
   selector: 'ngx-app',
@@ -13,11 +13,13 @@ import { SeoService } from './@core/utils/seo.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private analytics: AnalyticsService, private seoService: SeoService) {
+  constructor(private oAuthService: OAuthService) {
+    this.oAuthService.configure(oauthConfig);
+    this.oAuthService.loadDiscoveryDocumentAndTryLogin();
+    this.oAuthService.setupAutomaticSilentRefresh();
   }
 
   ngOnInit(): void {
-    this.analytics.trackPageViews();
-    this.seoService.trackCanonicalChanges();
+
   }
 }
