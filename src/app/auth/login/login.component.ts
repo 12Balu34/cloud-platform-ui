@@ -12,11 +12,11 @@ export class LoginComponent implements OnInit {
   isValidAccessToken: boolean;
 
   constructor(private oAuthService: OAuthService, private router: Router) {
-    this.isValidAccessToken = this.oAuthService.hasValidAccessToken();
-    this.isValidIdToken = this.oAuthService.hasValidIdToken();
   }
 
   ngOnInit(): void {
+    this.isValidAccessToken = this.oAuthService.hasValidAccessToken();
+    this.isValidIdToken = this.oAuthService.hasValidIdToken();
     if ( this.isValidAccessToken && this.isValidIdToken ) {
       this.router.navigateByUrl('/pages/overview');
     }
