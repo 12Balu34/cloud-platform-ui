@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OAuthService } from 'angular-oauth2-oidc';
 
 @Component({
   selector: 'ngx-overview',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./overview.component.scss']
 })
 export class OverviewComponent implements OnInit {
+  identityClaims: Object;
 
-  constructor() { }
+  constructor(private oAuthService: OAuthService) { }
 
   ngOnInit(): void {
+    this.identityClaims = this.oAuthService.getIdentityClaims();
   }
 
 }
