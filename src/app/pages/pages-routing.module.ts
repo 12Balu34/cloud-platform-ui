@@ -2,7 +2,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
-import { NewProjectComponent } from './projects/new-project/new-project.component';
 import { AppRuntimeComponent } from './platform-services/app-runtime/app-runtime.component';
 import { KubernetesComponent } from './platform-services/kubernetes/kubernetes.component';
 import { ObjectStorageComponent } from './platform-services/object-storage/object-storage.component';
@@ -24,10 +23,6 @@ const routes: Routes = [{
     {
       path: 'overview',
       component: OverviewComponent,
-    },
-    {
-      path: 'projects',
-      component: NewProjectComponent,
     },
     {
       path: 'platform-services/app-runtime',

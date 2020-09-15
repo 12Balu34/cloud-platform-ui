@@ -11,10 +11,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Overview',
         link: '/pages/overview',
-      },
-      {
-        title: 'Create new',
-        link: '/pages/projects',
       }
     ]
   },
