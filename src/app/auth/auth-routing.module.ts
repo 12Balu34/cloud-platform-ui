@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { LoginComponent } from './login/login.component';
 import { NbAuthComponent } from '@nebular/auth';
+import { CallbackComponent } from './callback/callback.component';
 
 
 const routes: Routes = [{
@@ -12,7 +13,11 @@ const routes: Routes = [{
     {
       path: 'login',
       component: LoginComponent,
-    }
+    },
+    {
+      path: 'callback',
+      component: CallbackComponent,
+    },
   ],
 }];
 

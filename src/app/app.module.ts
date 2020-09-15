@@ -17,9 +17,11 @@ import {
 } from '@nebular/theme';
 import {AuthModule} from './auth/auth.module';
 import { OAuthModule } from 'angular-oauth2-oidc';
+import { SimpleGuard } from './simple-guard';
 
 @NgModule({
   declarations: [AppComponent],
+  providers: [SimpleGuard],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

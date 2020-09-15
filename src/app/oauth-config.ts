@@ -7,7 +7,7 @@ export const oauthConfig: AuthConfig = {
 
   // Url der Angular-Anwendung
   // An diese URL sendet der Authorization-Server den Access Code
-  redirectUri: window.location.origin + '/pages/overview',
+  redirectUri: window.location.origin + '/auth/callback',
 
   // Name der Angular-Anwendung
   clientId: 'ngx-admin',
